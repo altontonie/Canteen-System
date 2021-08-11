@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+<h1>Today's Menu</h1>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <td>Meal Name</td>
+            <td>Selection</td>
+            <td>Amount</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="meals: ${studentMeal}">
+            <td th:text="${meals.mealName}">Meal Name</td>
+            <td><input type="checkbox" th:value="${meals.mealName}"></td>
+            <td><input type="number" name="amount" id="amount" th:max="${meals.amount}" min=1 /></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In Page</title>
+</head>
+
+<style>
+    body a {
+        text-decoration: none;
+    }
+
+
+    #registrationpage {
+        border: gray 5px solid;
+        border-style: groove;
+        position: absolute;
+        height: 300px;
+        width: 300px;
+        background-color: #eff3f9;
+        z-index: 15;
+        top: 45%;
+        left: 50%;
+        margin: -100px 0 0 -150px;
+        padding: 2em 0 0 3em;
+    }
+
+    body {
+        font-family: Georgia, "Times New Roman", Times, serif;
+    }
+
+    h1, h2 {
+        color: #399;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-family: Verdana, Geneva, sans-serif;
+        font-size: 1em;
+    }
+
+    small {
+        color: #999;
+    }
+</style>
+</head>
+
+<body>
+
+<div id="registrationpage">
+    <form method="POST" th:action="@{/process_login}" th:object="${student}">
+        Reg No:<br/>
+        <input type="text" id="regNo" name="regNo" th:field="*{regNo}" style="width: 65%;" /><br/>
+        Password: <br/>
+        <input type="password" id="password" name="password" th:field="*{password}" style="width: 65%;" /> <br/>
+
+        <br/><input type="submit" value="Log In" />
+    </form>
+    <form th:action="@{/register}">
+        <br/><input type="submit" value="Register" />
+    </form>
+    <form th:action="@{/chef}">
+        <br/><input type="submit" value="Chef" />
+    </form>
+
+</div>
+
+</body>
+
+</html>
